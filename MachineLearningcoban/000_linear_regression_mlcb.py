@@ -20,13 +20,14 @@ y = np.array([[49, 50, 51, 54, 58, 59, 60, 62, 63, 64, 66, 67, 68]]).T
 #Nghiem toi uu: w = pinv(A) . b = pinv(X^T . X) . X^T . y
 
 #(1) Building Xbar
-#Xbar: 
+#Xbar: vector hang chua thong tin input
 #Tao vector don vi one kich thuoc (15,1): 15 hang x 1 cot
 #X.shape: Tra ve array chua kich thuoc cac chieu cua matrix X:
 #X.shape = (15, 1) => X.shape[0] = 15
 #numpy.one([shape]): tao ma tran don vi voi kich thuoc shape
 one = np.ones((X.shape[0], 1))
 #numpy.concatenate((sequence of array_like(same shape)), axis)
+#f(x) = w_1 * x + w_0 * 1 -> why add vector One
 Xbar = np.concatenate((one, X), axis=1)
 
 #(2) Calculating weights of the fitting line
@@ -44,6 +45,7 @@ w = np.dot(np.linalg.pinv(A), b)
 #(3) Fitting line: y = w_1 . x + w_0
 w_0 = w[0][0]
 w_1 = w[1][0]
+#numpy.linspace(start, stop, num_of_generate_samples)
 x0 = np.linspace(145, 185, 2)
 y0 = w_0 + w_1 * x0
 
