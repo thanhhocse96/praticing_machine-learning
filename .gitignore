@@ -101,4 +101,4 @@ ENV/
 .mypy_cache/
 
 #MNIST training set
-/DeepLearning/MNIST_data
+/DeepLearning/.ipynb_checkpoints
